@@ -43,7 +43,9 @@ const octokit = new Octokit({ auth: core.getInput("token") });
     newGitHubData.push({
       id: repo.id,
       name: repo.name,
-      languages: Object.keys(repoLanguages.data),
+      languages: {
+        data: Object.keys(repoLanguages.data),
+      },
       repoEndpoint: repo.url,
       commitContributors: {
         data: commitContributors
